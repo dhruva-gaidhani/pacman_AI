@@ -10,7 +10,7 @@
 # (denero@cs.berkeley.edu) and Dan Klein (klein@cs.berkeley.edu).
 # Student side autograding was added by Brad Miller, Nick Hay, and
 # Pieter Abbeel (pabbeel@cs.berkeley.edu).
-
+# Edited by Sunny Shah and Dhruva Gaidhani for AI assignment SBU
 
 """
 This file contains all of the agents that can be selected to control Pacman.  To
@@ -773,7 +773,8 @@ def foodHeuristic(state, problem):
                 o Since, in any case, our pacman will always have to travel this distance.
             o Find the distance from curent pacman position to closest of these 2 farthest food points
 
-        To solve the problem, we will have to first find the 2 farthest food points. This can be done in O(n^2) - because we have already pre-calculated the distance
+        To solve the problem, we will have to first find the 2 farthest food points.
+        This can be done in O(n^2) - because we have already pre-calculated the distance
         between each food-point in the maze in the problem class.
 
         Thus, the heuristic function runs in O(n^2) where, n = number of remaining food-points

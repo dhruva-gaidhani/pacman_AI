@@ -10,7 +10,7 @@
 # (denero@cs.berkeley.edu) and Dan Klein (klein@cs.berkeley.edu).
 # Student side autograding was added by Brad Miller, Nick Hay, and
 # Pieter Abbeel (pabbeel@cs.berkeley.edu).
-
+# Edited by Dhruva Gaidhani for AI assignment SBU
 
 """
 In search.py, you will implement generic search algorithms which are called by
@@ -85,7 +85,9 @@ def depthFirstSearch(problem):
     understand the search problem that is being passed in:
     """
     """
-        We can make use of our generic search algorithm, where we need to design our state manager as a data structure that can pop the last element pushed
+        We can make use of our generic search algorithm,
+        where we need to design our state manager as a data
+        structure that can pop the last element pushed
         to mimic the idea of DFS.
 
         Thus, we can make use of Util.Stack data structure, which is based on LIFO principles
@@ -100,7 +102,9 @@ def breadthFirstSearch(problem):
     """Search the shallowest nodes in the search tree first."""
 
     """
-        We can make use of our generic search algorithm, where we need to design our state manager as a data structure that can pop the first element that was
+        We can make use of our generic search algorithm,
+        where we need to design our state manager as a
+        data structure that can pop the first element that was
         pushed into it, to mimic the idea of BFS.
 
         Thus, we can make use of Util.Queue data structure, which is based on FIFO principles
@@ -113,7 +117,8 @@ def breadthFirstSearch(problem):
 def generic_search(problem, state_call_manager):
     """
         Defines a general algorithm to search a graph.
-        Parameters are structure, which can be any data structure with .push() and .pop() methods, and problem, which is the
+        Parameters are structure, which can be any data structure
+        with .push() and .pop() methods, and problem, which is the
         search problem.
         """
 
@@ -183,18 +188,24 @@ def uniformCostSearch(problem):
     """Search the node of least total cost first."""
 
     """
-        We can again make use of our generic search algorithm, except that in case of UCS, our data structure will be a priority queue.
-        Since, we need to select the lowest cost node in each iteration, we need a min-heap data structure.
+        We can again make use of our generic search algorithm, except that in
+        case of UCS, our data structure will be a priority queue.
+        Since, we need to select the lowest cost node in each iteration,
+        we need a min-heap data structure.
 
-        Util.PriorityQueue is a min-heap. But, it requires us to explicitly push the priority in the push function. Thus, it won't be useful
+        Util.PriorityQueue is a min-heap. But, it requires us to explicitly
+        push the priority in the push function. Thus, it won't be useful
         as we have already made use of a generic push function in our general search function.
 
-        To avoid re-writing the entire logic again, we can make use of Util.PriorityQueueWithFunction, where we can pass a function reference to
+        To avoid re-writing the entire logic again, we can make use of
+        Util.PriorityQueueWithFunction, where we can pass a function reference to
         calculate the priority for each element, whenever we push an element to the heap.
 
         I have used a anonymous lambda function, which takes in the data-structure element and returns the priority.
 
-        Note: our data-structure element is ( path_to_the_node, state_of_node , cost_to_the_node ), in our general search algorithm. So our anonymous
+        Note: our data-structure element is
+        ( path_to_the_node, state_of_node , cost_to_the_node ),
+        in our general search algorithm. So our anonymous
         function should return cost_to_the_node, i.e. the last element of the tuple.
     """
     return generic_search(problem, util.PriorityQueueWithFunction(lambda (x, y, z): z))
@@ -212,8 +223,10 @@ def aStarSearch(problem, heuristic=nullHeuristic):
     """Search the node that has the lowest combined cost and heuristic first."""
 
     """
-        Idea here is similar to our generic search solution, except that in this case, our cost_to_the_path should also incorporate the heuristic information.
-        Thus, our state manager will now need to include the heuristic information for each node pushed to the state manager.
+        Idea here is similar to our generic search solution,
+        except that in this case, our cost_to_the_path should also incorporate the heuristic information.
+        Thus, our state manager will now need to include the heuristic
+        information for each node pushed to the state manager.
     """
 
     # Visited dictionary to store the expanded nodes
